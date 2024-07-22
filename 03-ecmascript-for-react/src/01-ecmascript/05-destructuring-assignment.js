@@ -24,6 +24,8 @@ const courses = [
 ];
 
 function spreadArray() {
+
+  // Block Scope
   {
     const reactCourse = courses[0];
     const restCourses = courses.slice(1);
@@ -35,8 +37,10 @@ function spreadArray() {
   // 🔶 구조 분해 할당 구문을 사용해 courses 배열에서 항목을 분해 및 할당합니다.
   // 참고: https://mzl.la/3Jfrwpm
 
-  // console.log({ course: reactCourse });
-  // console.log({ rest: restCourses });
+  const [reactCourse, ...restCourses] = courses; // [reactCourse, reactRouter, recoil]
+
+  console.log({ course: reactCourse });
+  console.log({ rest: restCourses });
 }
 
 function spreadObject() {
@@ -54,10 +58,14 @@ function spreadObject() {
 
   // 🔶 구조 분해 할당 구문을 사용해 reactCourse 객체에서 항목을 분해 및 할당합니다.
   // 참고: https://mzl.la/3Jfrwpm
+  const {id: courseId, title: courseTitle, url: courseUrl} = reactCourse
+  // const courseId = id;
+  // const courseTitle = title
+  // const courseUrl = url;
 
-  // console.log({ courseId });
-  // console.log({ courseTitle });
-  // console.log({ courseUrl });
+  console.log({ courseId });
+  console.log({ courseUrl });
+  console.log({ courseTitle });
 }
 
 function spreadRender() {

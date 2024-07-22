@@ -8,8 +8,19 @@ function combineArray() {
   const numberList = [2, -2, 1];
   const countList = [101, 201, 301];
 
-  const combineList = countList
+  // 두 배열을 하나로 병합하려면 ?
+  const nList = numberList.concat(countList); // A.concat(B)
+  console.log(nList);
+
+  //[2, -2, 101, 201,1 ] 이와 같은 결과 값을 원한다면 > 
+  const myResult = numberList
     .slice(0, 2)
+    .concat(countList.slice(0, 2))
+    .concat([numberList.at(-1)]);
+  // console.log(myResult);
+
+  const combineList = countList
+    .slice(0, 2) 
     .concat(numberList)
     .concat(countList.slice(2));
 
@@ -25,11 +36,13 @@ function combineArray() {
 }
 
 function combineObject() {
+  // 개발자 작성한 기본 옵션
   const defaultOptions = {
     startIndex: 0,
     loop: false,
   };
 
+  // 사용자가 설정한 커스텀 옵션
   const customOptions = {
     loop: true,
   };
